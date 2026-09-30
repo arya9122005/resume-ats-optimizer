@@ -1,0 +1,126 @@
+/* ---------- Brown palette ---------- */
+:root {
+  --ivory: #FAF6EE;
+  --beige: #F0E6D6;
+  --sand: #DCC9A8;
+  --camel: #C19A6B;
+  --caramel: #B8834A;
+  --chestnut: #8E5A3C;
+  --cognac: #9A4E23;
+  --coffee: #6F4E37;
+  --chocolate: #5A3A26;
+  --espresso: #2B1A12;
+  --olive: #5F6B34;          /* only for "matched" so good vs gap is easy to tell apart */
+
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--ivory);
+  color: var(--coffee);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 1.25rem; }
+
+/* ---------- Header / footer ---------- */
+.site-header { background: var(--espresso); color: var(--ivory); padding: 2rem 0 1.75rem; }
+.brand { margin: 0; font-family: var(--font-display); font-weight: 700; font-size: clamp(1.6rem, 4vw, 2.3rem); letter-spacing: -0.01em; }
+.tagline { margin: 0.35rem 0 0; color: var(--sand); }
+
+.site-footer { background: var(--espresso); color: var(--sand); padding: 1.5rem 0; margin-top: 4rem; font-size: 0.9rem; }
+.site-footer p { margin: 0; max-width: 70ch; }
+
+/* ---------- Demo banner ---------- */
+.demo-banner {
+  margin: 1.5rem 0 0;
+  padding: 0.7rem 1rem;
+  background: var(--beige);
+  border-left: 4px solid var(--cognac);
+  color: var(--chocolate);
+  font-size: 0.95rem;
+}
+.demo-banner code { background: var(--sand); padding: 0.05rem 0.35rem; border-radius: 2px; }
+
+/* ---------- Input sheets (the resume-paper feel) ---------- */
+.sheets { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.75rem; }
+
+.sheet {
+  background: var(--beige);
+  border-left: 5px solid var(--camel);
+  padding: 1.1rem 1.25rem 1.25rem;
+  box-shadow: 0 10px 24px -14px rgba(43, 26, 18, 0.45);
+}
+.sheet-title { display: block; margin-bottom: 0.6rem; font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; color: var(--espresso); }
+
+textarea {
+  width: 100%;
+  min-height: 300px;
+  padding: 0.85rem 0.95rem;
+  background: #FFFDF8;
+  border: 1px solid var(--sand);
+  border-radius: 2px;
+  color: var(--espresso);
+  font: inherit;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  resize: vertical;
+}
+textarea::placeholder { color: var(--chestnut); opacity: 0.7; }
+textarea:focus-visible, .btn:focus-visible { outline: 3px solid var(--caramel); outline-offset: 2px; }
+
+/* ---------- Buttons / status ---------- */
+.actions { display: flex; align-items: center; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.25rem; }
+
+.btn { font: inherit; font-weight: 500; padding: 0.7rem 1.5rem; border: 2px solid transparent; border-radius: 3px; cursor: pointer; }
+.btn-primary { background: var(--cognac); color: var(--ivory); }
+.btn-primary:hover { background: var(--espresso); }
+.btn-primary:disabled { background: var(--camel); color: var(--espresso); cursor: wait; }
+.btn-quiet { background: transparent; color: var(--chocolate); border-color: var(--sand); }
+.btn-quiet:hover { border-color: var(--chestnut); }
+
+.status { color: var(--chestnut); font-size: 0.95rem; }
+
+.error-box {
+  margin: 1rem 0 0;
+  padding: 0.7rem 1rem;
+  background: #F6DDD0;
+  border-left: 4px solid var(--cognac);
+  color: var(--espresso);
+}
+
+/* ---------- Results ---------- */
+.results { margin-top: 3rem; border-top: 3px solid var(--espresso); padding-top: 1.5rem; }
+
+.fit-label { margin: 0; font-family: var(--font-display); font-weight: 700; font-size: clamp(2rem, 6vw, 3.25rem); line-height: 1.1; color: var(--espresso); }
+.fit-detail { margin: 0.4rem 0 0; color: var(--chestnut); }
+
+.result-block { margin-top: 2rem; padding-top: 1.25rem; border-top: 1px solid var(--sand); }
+.result-block h2 { margin: 0 0 0.75rem; font-family: var(--font-display); font-weight: 700; font-size: 1.3rem; color: var(--chocolate); }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.chip { display: inline-flex; align-items: baseline; gap: 0.5rem; padding: 0.25rem 0.75rem; border: 1.5px solid; border-radius: 999px; font-size: 0.95rem; }
+.chip small { font-size: 0.8rem; opacity: 0.85; }
+.chip-match { color: var(--olive); border-color: var(--olive); background: #F1F0DE; }
+.chip-gap { color: var(--cognac); border-color: var(--cognac); background: #F7E6D8; }
+
+.plain-list { margin: 0; padding-left: 1.2rem; }
+.plain-list li { margin-bottom: 0.4rem; max-width: 60ch; }
+.empty { color: var(--chestnut); font-style: italic; margin: 0; }
+
+/* ---------- Mobile ---------- */
+@media (max-width: 760px) {
+  .sheets, .two-col { grid-template-columns: 1fr; }
+  textarea { min-height: 220px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { scroll-behavior: auto !important; transition: none !important; }
+}
